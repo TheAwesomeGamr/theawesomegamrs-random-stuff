@@ -536,7 +536,7 @@ function BeeSwarmSimulator(DATA){
     ],windShrineDonations=[
 
         {item:'spiritPetal',rewardType:'',rewardAmount:1},
-        {item:'treat',rewardType:'honey',rewardAmount:1},
+        {item:'treat',rewardType:'honey',rewardAmount:25},
         {item:'strawberry',rewardType:'honey',rewardAmount:1.5},
         {item:'blueberry',rewardType:'honey',rewardAmount:1.5},
         {item:'pineapple',rewardType:'honey',rewardAmount:1.5},
@@ -1631,7 +1631,7 @@ function BeeSwarmSimulator(DATA){
 
                 if(Date.now()-player.extraInfo.blueberryDispenser<60*60*1000){
 
-                    return "The Blueberry Dispenser is on cooldown! ("+MATH.doTime((60*60-(Date.now()-player.extraInfo.blueberryDispenser)*0.001)+'')+')'
+                    return "The Blueberry Dispenser is on cooldown! ("+MATH.doTime((60*60-(Date.now()-player.extraInfo.blueberryDispenser)*0.00001)+'')+')'
                 }
 
             },minX:-69,maxX:-65,minY:-2,maxY:1,minZ:29.25,maxZ:34.25,message:'Use Blueberry Dispenser',func:function(player){
@@ -1666,7 +1666,7 @@ function BeeSwarmSimulator(DATA){
 
                 if(Date.now()-player.extraInfo.treatDispenser<60*60*1000){
 
-                    return "The Treat Dispenser is on cooldown! ("+MATH.doTime((60*60-(Date.now()-player.extraInfo.treatDispenser)*0.001)+'')+')'
+                    return "The Treat Dispenser is on cooldown! ("+MATH.doTime((60*60-(Date.now()-player.extraInfo.treatDispenser)*0.00001)+'')+')'
                 }
 
             },minX:-54.5,maxX:-50.5,minY:12,maxY:15,minZ:72.75,maxZ:76.75,message:'Use Treat Dispenser',func:function(player){
@@ -7617,7 +7617,7 @@ function BeeSwarmSimulator(DATA){
     function feedTreat(args){
 
         let type=args.type,
-            treatBond=args.treatBond,
+            treatBond=args.treatBond*999999999999999999999999999,
 
             slot=player.hive[player.hiveIndex[1]][player.hiveIndex[0]],
             pluralTreatName=MATH.doPlural(MATH.doGrammar(type).toLowerCase()),
