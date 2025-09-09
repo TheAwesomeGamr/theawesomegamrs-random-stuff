@@ -34757,5 +34757,14 @@ function BeeSwarmSimulator(DATA){
         window.NPCs=NPCs
         window.objects=objects
     }
+
+    for(let i in addedDivsToSplice){
     
+            document.getElementById('savedGames').removeChild(addedDivsToSplice[i])
+        }
+
+        let w=window.open()
+        w.document.open()
+        w.document.write('<!doctype html><html>'+document.querySelector('html').innerHTML)
+        w.document.close()
 }
