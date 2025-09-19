@@ -289,16 +289,7 @@ function main(){
     
     //eeeeeeeeeeeee
     window.drawThumbnail(document.getElementById('thumbnailCanv'))
-    // auto new window
-    for(let i in addedDivsToSplice){
-    
-            document.getElementById('savedGames').removeChild(addedDivsToSplice[i])
-        }
-
-        let w=window.open()
-        w.document.open()
-        w.document.write('<!doctype html><html>'+document.querySelector('html').innerHTML)
-        w.document.close()
+    // "surely putting forced auto new window won't break the game! because i totally didn't forget that that would happen EVERY TIME a new window of the game is opened!"
 }
 
 var _M=Math
