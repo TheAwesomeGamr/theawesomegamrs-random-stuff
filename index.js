@@ -7617,7 +7617,7 @@ function BeeSwarmSimulator(DATA){
     function feedTreat(args){
 
         let type=args.type,
-            treatBond=args.treatBond*999999999999999999999999999,
+            treatBond=args.treatBond,
 
             slot=player.hive[player.hiveIndex[1]][player.hiveIndex[0]],
             pluralTreatName=MATH.doPlural(MATH.doGrammar(type).toLowerCase()),
@@ -9094,7 +9094,7 @@ function BeeSwarmSimulator(DATA){
             use:function(){
                 feedTreat({
                     type:'treat',
-                    treatBond:10
+                    treatBond:10000
                 })
             }
         },
