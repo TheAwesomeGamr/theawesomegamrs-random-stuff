@@ -116,7 +116,7 @@ function main(){
     
     let addedDivsToSplice=[],ableToImport,printedCode
     
-    document.getElementById('mainPlay').onclick=function(){
+    document.getElementById('mainPlay2').onclick=function(){
         
         copyThumbnail('select')
     
