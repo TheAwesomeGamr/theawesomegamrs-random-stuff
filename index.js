@@ -26771,7 +26771,7 @@ function BeeSwarmSimulator(DATA){
                 
                 if(gear.tool[out.currentGear.tool].ability) gear.tool[out.currentGear.tool].ability(arr)
                 
-                out.toolCooldown=gear.tool[out.currentGear.tool].cooldown/player.collectorSpeed
+                out.toolCooldown=0.25
                 out.toolRot=0
             }
             
