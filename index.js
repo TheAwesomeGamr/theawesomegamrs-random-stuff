@@ -9642,8 +9642,12 @@ function BeeSwarmSimulator(DATA){
         snowflake:{
             amount:0,u:128*1/2048,v:128*14/2048,value:8,cooldown:3,autoUse:true,
             use:function(){
+                if(!window.isBeesmas)
+                    player.addMessage('The snowflake melted away...',COLORS.redArr)
+                else{
                     player.addEffect('coolBreeze',9/(15*60))   
                     //items.snowflake.amount--
+                }
             }
         },
         gingerbreadBear:{
