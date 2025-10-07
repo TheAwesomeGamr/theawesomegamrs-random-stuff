@@ -9644,7 +9644,6 @@ function BeeSwarmSimulator(DATA){
             use:function(){
                     player.addEffect('coolBreeze',9/(15*60))   
                     //items.snowflake.amount--
-                }
             }
         },
         gingerbreadBear:{
