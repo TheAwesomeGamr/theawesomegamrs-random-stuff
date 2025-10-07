@@ -8006,7 +8006,7 @@ function BeeSwarmSimulator(DATA){
             amount:0,u:128*5/2048,v:128*10/2048,value:12,
             use:function(){
 
-                items.fieldDice.amount--
+                //items.fieldDice.amount--
 
                 let f=[]
 
@@ -8034,7 +8034,7 @@ function BeeSwarmSimulator(DATA){
             amount:0,u:128*6/2048,v:128*10/2048,value:30,
             use:function(){
 
-                items.smoothDice.amount--
+                //items.smoothDice.amount--
 
                 let f=[]
 
@@ -8064,7 +8064,7 @@ function BeeSwarmSimulator(DATA){
             amount:0,u:128*7/2048,v:128*10/2048,value:50,
             use:function(){
 
-                items.loadedDice.amount--
+                //items.loadedDice.amount--
 
                 let f=[]
 
@@ -8116,7 +8116,7 @@ function BeeSwarmSimulator(DATA){
                     return
                 }
 
-                items.microConverter.amount--
+                //items.microConverter.amount--
 
                 textRenderer.add((player.pollen*player.honeyPerPollen)|0,[player.body.position.x,player.body.position.y+2,player.body.position.z],COLORS.honey,1,'⇆')
                 player.honey+=(player.pollen*player.honeyPerPollen)|0
@@ -8126,14 +8126,14 @@ function BeeSwarmSimulator(DATA){
 
         honeysuckle:{
             
-            amount:0,u:128*1/2048,v:128*11/2048,value:11,cooldown:30,autoUse:true,
+            amount:0,u:128*1/2048,v:128*11/2048,value:11,cooldown:0,autoUse:true,
             use:function(){
 
-                if(player.pollen<player.capacity*0.9){
+                //if(player.pollen<player.capacity*0.9){
 
-                    player.addMessage('Your container needs to be full!',COLORS.redArr)
-                    return
-                }
+                //    player.addMessage('Your container needs to be full!',COLORS.redArr)
+                //    return
+                //}
 
                 let am=Math.min(player.convertTotal*0.25,player.pollen)
 
@@ -8141,14 +8141,14 @@ function BeeSwarmSimulator(DATA){
                 player.honey+=(am*player.honeyPerPollen)|0
                 player.pollen-=am
 
-                items.honeysuckle.amount--
+                //items.honeysuckle.amount--
 
             }
         },
 
         whirligig:{
             
-            amount:0,u:128*2/2048,v:128*11/2048,value:30,cooldown:60,
+            amount:0,u:128*2/2048,v:128*11/2048,value:30,cooldown:0,
             use:function(){
 
                 if(player.antChallenge){
@@ -8704,7 +8704,7 @@ function BeeSwarmSimulator(DATA){
 
         gumdrops:{
             
-            amount:0,u:128/2048,v:128*7/2048,cooldown:4,autoUse:true,value:5,
+            amount:0,u:128/2048,v:128*7/2048,cooldown:0,autoUse:true,value:5,
             use:function(){
 
                 if(player.fieldIn){
@@ -8715,7 +8715,7 @@ function BeeSwarmSimulator(DATA){
                     if(Math.random()<0.09)
                         player.stats.gummyStar+=20
                         
-                    items.gumdrops.amount--
+                    //items.gumdrops.amount--
                     
                     for(let i=0,l=MATH.random(2,5)|0;i<l;i++){
                         
@@ -8762,7 +8762,7 @@ function BeeSwarmSimulator(DATA){
                 
                 if(player.fieldIn){
                     
-                    items.coconut.amount--
+                    //items.coconut.amount--
                     
                     objects.mobs.push(new Coconut((Math.random()*fieldInfo[player.fieldIn].width)|0,(Math.random()*fieldInfo[player.fieldIn].length)|0,0))
                     
@@ -8778,7 +8778,7 @@ function BeeSwarmSimulator(DATA){
             amount:0,u:128*3/2048,v:128*7/2048,value:10,
             use:function(){
                 
-                items.stinger.amount--
+                //items.stinger.amount--
                 player.addEffect('stingerBuff')
                 player.stats.stingerUsed++
             }
@@ -8788,23 +8788,7 @@ function BeeSwarmSimulator(DATA){
             
             amount:0,u:0,v:128*3/2048,value:19,
             use:function(){
-                
-                for(let i in player.effects){
-
-                    if(player.effects[i].type==='purplePotionBuff'){
-
-                        player.addMessage('Cannot use while Purple Potion is active!',COLORS.redArr)
-                        return
-                    }
-
-                    if(player.effects[i].type==='superSmoothieBuff'){
-
-                        player.addMessage('Cannot use while Super Smoothie is active!',COLORS.redArr)
-                        return
-                    }
-                }
-                
-                items.glue.amount--
+                //items.glue.amount--
                 player.addEffect('glueBuff')
             }
         },
@@ -8813,17 +8797,7 @@ function BeeSwarmSimulator(DATA){
             
             amount:0,u:128/2048,v:128*3/2048,value:17,
             use:function(){
-                
-                for(let i in player.effects){
-
-                    if(player.effects[i].type==='superSmoothieBuff'){
-
-                        player.addMessage('Cannot use while Super Smoothie is active!',COLORS.redArr)
-                        return
-                    }
-                }
-                
-                items.oil.amount--
+                //items.oil.amount--
                 player.addEffect('oilBuff')
             }
         },
@@ -8832,17 +8806,7 @@ function BeeSwarmSimulator(DATA){
             
             amount:0,u:128*2/2048,v:128*3/2048,value:17,
             use:function(){
-
-                for(let i in player.effects){
-
-                    if(player.effects[i].type==='superSmoothieBuff'){
-
-                        player.addMessage('Cannot use while Super Smoothie is active!',COLORS.redArr)
-                        return
-                    }
-                }
-                
-                items.enzymes.amount--
+                //items.enzymes.amount--
                 player.addEffect('enzymesBuff')
             }
         },
@@ -8851,23 +8815,7 @@ function BeeSwarmSimulator(DATA){
             
             amount:0,u:128*3/2048,v:128*3/2048,value:17,
             use:function(){
-                
-                for(let i in player.effects){
-
-                    if(player.effects[i].type==='purplePotionBuff'){
-
-                        player.addMessage('Cannot use while Purple Potion is active!',COLORS.redArr)
-                        return
-                    }
-
-                    if(player.effects[i].type==='superSmoothieBuff'){
-
-                        player.addMessage('Cannot use while Super Smoothie is active!',COLORS.redArr)
-                        return
-                    }
-                }
-
-                items.redExtract.amount--
+                //items.redExtract.amount--
                 player.addEffect('redExtractBuff')
             }
         },
@@ -8876,23 +8824,7 @@ function BeeSwarmSimulator(DATA){
             
             amount:0,u:128*4/2048,v:128*3/2048,value:17,
             use:function(){
-
-                for(let i in player.effects){
-
-                    if(player.effects[i].type==='purplePotionBuff'){
-
-                        player.addMessage('Cannot use while Purple Potion is active!',COLORS.redArr)
-                        return
-                    }
-
-                    if(player.effects[i].type==='superSmoothieBuff'){
-
-                        player.addMessage('Cannot use while Super Smoothie is active!',COLORS.redArr)
-                        return
-                    }
-                }
-                
-                items.blueExtract.amount--
+                //items.blueExtract.amount--
                 player.addEffect('blueExtractBuff')
             }
         },
@@ -8901,17 +8833,7 @@ function BeeSwarmSimulator(DATA){
             
             amount:0,u:128*5/2048,v:128*3/2048,value:22,
             use:function(){
-
-                for(let i in player.effects){
-
-                    if(player.effects[i].type==='superSmoothieBuff'){
-
-                        player.addMessage('Cannot use while Super Smoothie is active!',COLORS.redArr)
-                        return
-                    }
-                }
-                
-                items.tropicalDrink.amount--
+                //items.tropicalDrink.amount--
                 player.addEffect('tropicalDrinkBuff')
             }
         },
@@ -8920,35 +8842,7 @@ function BeeSwarmSimulator(DATA){
             
             amount:0,u:128*6/2048,v:128*3/2048,value:95,
             use:function(){
-
-                for(let i in player.effects){
-
-                    if(player.effects[i].type==='redExtractBuff'){
-
-                        player.addMessage('Cannot use while Red Extract is active!',COLORS.redArr)
-                        return
-                    }
-
-                    if(player.effects[i].type==='blueExtractBuff'){
-
-                        player.addMessage('Cannot use while Blue Extract is active!',COLORS.redArr)
-                        return
-                    }
-
-                    if(player.effects[i].type==='glueBuff'){
-
-                        player.addMessage('Cannot use while Glue is active!',COLORS.redArr)
-                        return
-                    }
-
-                    if(player.effects[i].type==='superSmoothieBuff'){
-
-                        player.addMessage('Cannot use while Super Smoothie is active!',COLORS.redArr)
-                        return
-                    }
-                }
-                
-                items.purplePotion.amount--
+                //items.purplePotion.amount--
                 player.addEffect('purplePotionBuff')
             }
         },
@@ -8957,53 +8851,7 @@ function BeeSwarmSimulator(DATA){
             
             amount:0,u:128*7/2048,v:128*3/2048,value:120,
             use:function(){
-
-                for(let i in player.effects){
-
-                    if(player.effects[i].type==='redExtractBuff'){
-
-                        player.addMessage('Cannot use while Red Extract is active!',COLORS.redArr)
-                        return
-                    }
-
-                    if(player.effects[i].type==='blueExtractBuff'){
-
-                        player.addMessage('Cannot use while Blue Extract is active!',COLORS.redArr)
-                        return
-                    }
-
-                    if(player.effects[i].type==='glueExtractBuff'){
-
-                        player.addMessage('Cannot use while Glue is active!',COLORS.redArr)
-                        return
-                    }
-
-                    if(player.effects[i].type==='enzymesBuff'){
-
-                        player.addMessage('Cannot use while Enzymes are active!',COLORS.redArr)
-                        return
-                    }
-
-                    if(player.effects[i].type==='oilBuff'){
-
-                        player.addMessage('Cannot use while Oil is active!',COLORS.redArr)
-                        return
-                    }
-
-                    if(player.effects[i].type==='tropicalDrinkBuff'){
-
-                        player.addMessage('Cannot use while Tropical Drink is active!',COLORS.redArr)
-                        return
-                    }
-
-                    if(player.effects[i].type==='purplePotionBuff'){
-
-                        player.addMessage('Cannot use while Purple Potion is active!',COLORS.redArr)
-                        return
-                    }
-                }
-                
-                items.superSmoothie.amount--
+                //items.superSmoothie.amount--
                 player.addEffect('superSmoothieBuff')
             }
         },
@@ -9094,7 +8942,7 @@ function BeeSwarmSimulator(DATA){
             use:function(){
                 feedTreat({
                     type:'treat',
-                    treatBond:10000
+                    treatBond:1000000
                 })
             }
         },
@@ -9231,7 +9079,7 @@ function BeeSwarmSimulator(DATA){
             amount:0,u:128*4/2048,v:128*5/2048,value:60,
             use:function(){
                 
-                items.basicEgg.amount--
+                //items.basicEgg.amount--
                 player.hive[player.hiveIndex[1]][player.hiveIndex[0]].type='basic'
                 player.hive[player.hiveIndex[1]][player.hiveIndex[0]].gifted=Math.random()<1/100
                 
@@ -9278,7 +9126,7 @@ function BeeSwarmSimulator(DATA){
                 
                 type=types[(Math.random()*types.length)|0]
                 
-                items.silverEgg.amount--
+                //items.silverEgg.amount--
                 player.hive[player.hiveIndex[1]][player.hiveIndex[0]].type=type
                 player.hive[player.hiveIndex[1]][player.hiveIndex[0]].gifted=Math.random()<1/100
                 
@@ -9325,7 +9173,7 @@ function BeeSwarmSimulator(DATA){
                 
                 type=types[(Math.random()*types.length)|0]
                 
-                items.goldEgg.amount--
+                //items.goldEgg.amount--
                 player.hive[player.hiveIndex[1]][player.hiveIndex[0]].type=type
                 player.hive[player.hiveIndex[1]][player.hiveIndex[0]].gifted=Math.random()<1/100
                 
@@ -9372,7 +9220,7 @@ function BeeSwarmSimulator(DATA){
                 
                 type=types[(Math.random()*types.length)|0]
                 
-                items.diamondEgg.amount--
+                //items.diamondEgg.amount--
                 player.hive[player.hiveIndex[1]][player.hiveIndex[0]].type=type
                 player.hive[player.hiveIndex[1]][player.hiveIndex[0]].gifted=Math.random()<1/100
                 
@@ -9406,7 +9254,7 @@ function BeeSwarmSimulator(DATA){
                 
                 type=types[(Math.random()*types.length)|0]
                 
-                items.mythicEgg.amount--
+                //items.mythicEgg.amount--
                 player.hive[player.hiveIndex[1]][player.hiveIndex[0]].type=type
                 player.hive[player.hiveIndex[1]][player.hiveIndex[0]].gifted=Math.random()<1/100
                 
@@ -9453,7 +9301,7 @@ function BeeSwarmSimulator(DATA){
                 
                 type=types[(Math.random()*types.length)|0]
                 
-                items.giftedSilverEgg.amount--
+                //items.giftedSilverEgg.amount--
                 player.hive[player.hiveIndex[1]][player.hiveIndex[0]].type=type
                 player.hive[player.hiveIndex[1]][player.hiveIndex[0]].gifted=true
                 
@@ -9501,7 +9349,7 @@ function BeeSwarmSimulator(DATA){
                 
                 type=types[(Math.random()*types.length)|0]
                 
-                items.giftedGoldEgg.amount--
+                //items.giftedGoldEgg.amount--
                 player.hive[player.hiveIndex[1]][player.hiveIndex[0]].type=type
                 player.hive[player.hiveIndex[1]][player.hiveIndex[0]].gifted=true
                 
@@ -9548,7 +9396,7 @@ function BeeSwarmSimulator(DATA){
                 
                 type=types[(Math.random()*types.length)|0]
                 
-                items.giftedDiamondEgg.amount--
+                //items.giftedDiamondEgg.amount--
                 player.hive[player.hiveIndex[1]][player.hiveIndex[0]].type=type
                 player.hive[player.hiveIndex[1]][player.hiveIndex[0]].gifted=true
                 
@@ -9582,7 +9430,7 @@ function BeeSwarmSimulator(DATA){
                 
                 type=types[(Math.random()*types.length)|0]
                 
-                items.giftedMythicEgg.amount--
+                //items.giftedMythicEgg.amount--
                 player.hive[player.hiveIndex[1]][player.hiveIndex[0]].type=type
                 player.hive[player.hiveIndex[1]][player.hiveIndex[0]].gifted=true
                 
@@ -9624,7 +9472,7 @@ function BeeSwarmSimulator(DATA){
                 
                 type=types[(Math.random()*types.length)|0]
                 
-                items.starEgg.amount--
+                //items.starEgg.amount--
                 player.hive[player.hiveIndex[1]][player.hiveIndex[0]].type=type
                 player.hive[player.hiveIndex[1]][player.hiveIndex[0]].gifted=true
                 
@@ -9768,18 +9616,11 @@ function BeeSwarmSimulator(DATA){
             use:function(){
                 
                 if(player.fieldIn){
-
-                    if(player.fieldIn==='AntField'){
-                        
-                        player.addMessage('You can\' use this item in the Ant Field!',COLORS.redArr)
-                        return
-                    }
-
                     let f=player.fieldIn
                     f=f[0].toLowerCase()+f.substring(1,f.length)
                     player.addEffect(f+'Boost')
                     player.addMessage('Activated "'+MATH.doGrammar(f)+' Boost"')
-                    items.glitter.amount--
+                    //items.glitter.amount--
 
                     for(let i in objects.planters){
 
@@ -9799,11 +9640,8 @@ function BeeSwarmSimulator(DATA){
         snowflake:{
             amount:0,u:128*1/2048,v:128*14/2048,value:8,cooldown:3,autoUse:true,
             use:function(){
-                if(!window.isBeesmas)
-                    player.addMessage('The snowflake melted away...',COLORS.redArr)
-                else{
                     player.addEffect('coolBreeze',9/(15*60))   
-                    items.snowflake.amount--
+                    //items.snowflake.amount--
                 }
             }
         },
@@ -9848,7 +9686,7 @@ function BeeSwarmSimulator(DATA){
                     player.addMessage('You must be in a field to use balloons!',COLORS.redArr)
                     return
                 }
-                items.pinkBalloon.amount--
+                //items.pinkBalloon.amount--
                 objects.balloons.push(new Balloon(player.fieldIn,player.flowerIn.x,player.flowerIn.z,'pink',0))
             }
         },
@@ -9861,7 +9699,7 @@ function BeeSwarmSimulator(DATA){
                     player.addMessage('You must be in a field to use balloons!',COLORS.redArr)
                     return
                 }
-                items.redBalloon.amount--
+                //items.redBalloon.amount--
                 objects.balloons.push(new Balloon(player.fieldIn,player.flowerIn.x,player.flowerIn.z,'red',0))
             }
         },
@@ -9874,7 +9712,7 @@ function BeeSwarmSimulator(DATA){
                     player.addMessage('You must be in a field to use balloons!',COLORS.redArr)
                     return
                 }
-                items.whiteBalloon.amount--
+                //items.whiteBalloon.amount--
                 objects.balloons.push(new Balloon(player.fieldIn,player.flowerIn.x,player.flowerIn.z,'white',0))
             }
         },
@@ -9887,7 +9725,7 @@ function BeeSwarmSimulator(DATA){
                     player.addMessage('You must be in a field to use balloons!',COLORS.redArr)
                     return
                 }
-                items.blackBalloon.amount--
+                //items.blackBalloon.amount--
                 objects.balloons.push(new Balloon(player.fieldIn,player.flowerIn.x,player.flowerIn.z,'black',0))
             }
         },
@@ -21408,7 +21246,7 @@ function BeeSwarmSimulator(DATA){
                 box(-0.3,0,0.6+0.65,0.1,0.1,0.4,false,[0.4,0.4,0.4])
             },
             desc:'A small gardening rake.<br><br>Collects 2 pollen from 3 flowers every 0.7s.',
-            cost:['800 honey']
+            cost:['0 honey']
         },
 
         clippers:{
@@ -21424,7 +21262,7 @@ function BeeSwarmSimulator(DATA){
                 box(-0.2-0.15+Math.sin(30*MATH.TO_RAD)*0.41,-0.15+Math.cos(30*MATH.TO_RAD)*0.41,0.4,0.1,0.6,0.1,[0,0,-30],[1.3,1.3,1.3])
             },
             desc:'A little pair of yellow clippers.<br><br>Collects 9 pollen from 1 flowers every 0.6s.',
-            cost:['2200 honey']
+            cost:['0 honey']
         },
 
         magnet:{
@@ -21442,7 +21280,7 @@ function BeeSwarmSimulator(DATA){
                 box(-0.3+0.3,0.5,0.5,0.19,0.5,0.19,false,[1,1,1])
             },
             desc:'A big magnet that somehow picks up pollen particles.<br><br>Collects 2 pollen from 9 flowers every 0.8s.',
-            cost:['5500 honey']
+            cost:['0 honey']
         },
 
         vacuum:{
@@ -21459,7 +21297,7 @@ function BeeSwarmSimulator(DATA){
                 box(-0.3+0.1,-0.3,0.7,0.075,0.075,0.31,false,[1.4,1.4,0])
             },
             desc:'A handy house-hold vacuum cleaner.<br><br>Collects 2 pollen from 13 flowers every 0.8s.',
-            cost:['14000 honey']
+            cost:['0 honey']
         },
 
         superScooper:{
@@ -21478,7 +21316,7 @@ function BeeSwarmSimulator(DATA){
                 box(-0.3-0.3*0.5,0,1.55,0.3,0.175,0.65,false,[0,0,1.5])
             },
             desc:'A massive toy scooper useful for pollen collection.<br><br>Collects 4 pollen from 5 flowers every 0.5s.',
-            cost:['40000 honey']
+            cost:['0 honey']
         },
 
         pulsar:{
@@ -21513,7 +21351,7 @@ function BeeSwarmSimulator(DATA){
                 ParticleRenderer.add({x:player.body.position.x+x,y:player.body.position.y+0.2+1.1*0.5+0.25,z:player.body.position.z+z,vx:MATH.random(-0.3,0.3),vy:(Math.random()-0.5)*0.5,vz:MATH.random(-0.3,0.3),grav:1.5,size:MATH.random(30,70),col:[0,1,0],life:1,rotVel:MATH.random(-3,3),alpha:2})
             },
             desc:'A strange magical tool that sucks up more pollen.<br><br>Collects 2 pollen from 29 flowers every 1s.',
-            cost:['125000 honey']
+            cost:['0 honey']
         },
 
         electroMagnet:{
@@ -21536,7 +21374,7 @@ function BeeSwarmSimulator(DATA){
                 box(-0.3,0.5+0.2,0.5+0.3,0.19,0.5,0.19,false,[1,1,1])
             },
             desc:'A upgraded magnet charged with electricity.<br><br>Collects 6 pollen from 9 flowers every 0.5s.',
-            cost:['300000 honey']
+            cost:['0 honey']
         },
         
         scissors:{
@@ -21552,7 +21390,7 @@ function BeeSwarmSimulator(DATA){
                 box(-0.2-0.15+Math.sin(30*MATH.TO_RAD)*0.41,-0.15+Math.cos(30*MATH.TO_RAD)*0.41,0.4,0.1,0.6,0.1,[0,0,-30],[1.3,1.3,1.3])
             },
             desc:'A pair of school scissors.<br><br>Collects 50 pollen from 1 flowers every 0.5s.',
-            cost:['850000 honey']
+            cost:['0 honey']
         },
 
         honeyDipper:{
@@ -21571,7 +21409,7 @@ function BeeSwarmSimulator(DATA){
 
             },
             desc:'A giant honey dipper.<br><br>Collects 2 pollen from 49 flowers every 0.8s.',
-            cost:['1500000 honey']
+            cost:['0 honey']
         },
 
         bubbleWand:{
@@ -21610,7 +21448,7 @@ function BeeSwarmSimulator(DATA){
                 }
             },
             desc:'A bubble wand dipped in liquidy soap.<br><br>Collects 6 pollen from 16 flowers every 0.8s. Collects x2 more blue pollen.<br><br>Every 10th swing creates a bubble on the field.',
-            cost:['2500000 honey']
+            cost:['0 honey']
         },
 
         scythe:{
@@ -21664,7 +21502,7 @@ function BeeSwarmSimulator(DATA){
                 }
             },
             desc:'A red scythe forged and heated in fire.<br><br>Collects 8 pollen from 6 flowers every 0.47s. Collects x2 more red pollen.<br><br>Every 10th swing summons a flame nearby.',
-            cost:['2500000 honey']
+            cost:['0 honey']
         },
 
         goldenRake:{
@@ -21689,7 +21527,7 @@ function BeeSwarmSimulator(DATA){
                 }
             },
             desc:'A shiny golden rake with improved pollen collection.<br><br>Collects 7 pollen from 16 flowers every 0.75s.<br><br>Every 5th swing is supercharged and collects more flowers from longer lines.',
-            cost:['12500000 honey']
+            cost:['0 honey']
         },
 
         sparkStaff:{
@@ -21727,7 +21565,7 @@ function BeeSwarmSimulator(DATA){
                 }
             },
             desc:'A wand powered by static electricity.<br><br>Collects 35 pollen from 3 random flowers every 0.5s.<br><br>Unlike in the real game, this tool is good :D',
-            cost:['40000000 honey']
+            cost:['0 honey']
         },
 
         porcelainDipper:{
@@ -21778,7 +21616,7 @@ function BeeSwarmSimulator(DATA){
                 }
             },
             desc:'A dipper drizzled with brittle liquid porcelain.<br><br>Collects 3 pollen from 49 flowers every 0.7s. Collects x1.5 more white pollen.<br><br>Every 10th swing summons a pillar of light that collects massive pollen.',
-            cost:['100000000 honey'],
+            cost:['0 honey'],
 
         },
         
@@ -21834,7 +21672,7 @@ function BeeSwarmSimulator(DATA){
                 ParticleRenderer.add({x:player.body.position.x+x,y:player.body.position.y+1.65,z:player.body.position.z+z,vx:MATH.random(-0.9,0.9),vy:Math.random()*0.5+0.2,vz:MATH.random(-0.9,0.9),grav:-1.5,size:MATH.random(20,50),col:[0.9,0.7,0.3],life:0.7,rotVel:MATH.random(-3,3),alpha:0.35})
             },
             desc:'A luxurious flower with enchanted petals.<br><br>Collects 10 pollen from 49 flowers every 0.7s.<br><br>Every 3rd swing summons a flying petal shuriken that collects tokens and causes bees to convert pollen.',
-            cost:['1000000000 honey','5 starJelly','25 enzymes','25 glitter','1 spiritPetal']
+            cost:['0 honey']
         },
         
         darkScythe:{
@@ -21920,7 +21758,7 @@ function BeeSwarmSimulator(DATA){
                 ParticleRenderer.add({x:player.body.position.x+x,y:player.body.position.y+y,z:player.body.position.z+z,vx:-player.bodyDir[2]*2,vy:1.75,vz:player.bodyDir[0]*2,grav:0,size:MATH.random(70,120),col:[1,0,Math.random()],life:1,rotVel:MATH.random(-3,3),alpha:4.5})
             },
             desc:'Swipe through flames to unlock their dark potential. Ensue dark chaos in fields and refuel burning flames, collecting more pollen and dealing more damage. Tend a destructive field of violet fire to enhance your Super-Crit power and Instant Red Conversion.',
-            cost:['2500000000000 honey','1000 redExtract','200 stinger','50 hardWax','15 superSmoothie']
+            cost:['0 honey']
         },
         
         tidePopper:{
@@ -21969,7 +21807,7 @@ function BeeSwarmSimulator(DATA){
                 
             },
             desc:'Pierce through flowers and bubbles with torriental waves, washing away tokens and converting pollen from bees. Swings faster and ramps up the more you pop, then unleashes tidal waves in a violent surge at 500 bubbles. Splash Balloons with tall waves to earn Tide Blessing and re-energize tidal waves with the destruction of bubbles.',
-            cost:['2500000000000 honey','1000 blueExtract','200 stinger','30 swirledWax','15 superSmoothie']
+            cost:['0 honey']
         },
         
         gummyBaller:{
@@ -22009,7 +21847,7 @@ function BeeSwarmSimulator(DATA){
                 
             },
             desc:'Absorb goo to conjure up a delectable arsenal of gummy wrecking balls. Cover the field in goo and collect pollen with a giant gummyball. Ricochet off Marks and Honey Tokens to build up your gummyball combo for massive gooey gains. Jump to release your gummyball prematurely in a field.',
-            cost:['10000000000000 honey','500 glue','2500 gumdrops','25 causticWax','5 turpentine']
+            cost:['0 honey']
         },
     }
 
