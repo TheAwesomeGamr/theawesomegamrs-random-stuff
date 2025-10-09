@@ -499,7 +499,7 @@ function BeeSwarmSimulator(DATA){
     }
     window.onresize=windowResize
 
-    let PLAYER_PHYSICS_GROUP=2,STATIC_PHYSICS_GROUP=4,DYNAMIC_PHYSICS_GROUP=8,BEE_COLLECT=0,BEE_FLY=0,then=0,dt,frameCount=0,TIME=0,player,NIGHT_DARKNESS=0.55,NPCs,STATS_TICK=false,leavesTimer=45,snowflakeTimer=2,testRealm=DATA.name===window.atob('VGVzdFJlYWxt'),minNPC
+    let PLAYER_PHYSICS_GROUP=2,STATIC_PHYSICS_GROUP=4,DYNAMIC_PHYSICS_GROUP=8,BEE_COLLECT=0,BEE_FLY=0,then=0,dt,frameCount=0,TIME=0,player,NIGHT_DARKNESS=0.55,NPCs,STATS_TICK=false,leavesTimer=45,snowflakeTimer=2,testRealm=DATA.name===window.atob('VGVzdFJlYWxt'),minNPC // hmmmmmmm testrealm ahaha
     
     let CURRENTLY_SNOW_STORM=0,CURRENTLY_HONEY_STORM=0,CURRENTLY_MYTHIC_STORM=0,STORM_SKY_COLOR,GLOBAL_SKY_COLOR=isBeesmas?[0.96,0.96,0.96]:[0.4,0.6,1]
 
@@ -537,7 +537,7 @@ function BeeSwarmSimulator(DATA){
 
     ],windShrineDonations=[
 
-        {item:'spiritPetal',rewardType:'',rewardAmount:1},
+        {item:'spiritPetal',rewardType:'',rewardAmount:3},
         {item:'treat',rewardType:'honey',rewardAmount:25},
         {item:'strawberry',rewardType:'honey',rewardAmount:1.5},
         {item:'blueberry',rewardType:'honey',rewardAmount:1.5},
@@ -27126,7 +27126,6 @@ function BeeSwarmSimulator(DATA){
             dialogue:[],
             dialogueIndex_beesmas:0,
             dialogue_beesmas:window.dialogue_giftedBuckoBee_beesmas(player,items,NPCs),
-            needsTranslator:true,
             mesh:new Mesh(),
             doesntHaveMesh:true,
             ornamentID:9,
@@ -27154,7 +27153,6 @@ function BeeSwarmSimulator(DATA){
             dialogue:[],
             dialogueIndex_beesmas:0,
             dialogue_beesmas:window.dialogue_giftedRileyBee_beesmas(player,items,NPCs),
-            needsTranslator:true,
             mesh:new Mesh(),
             doesntHaveMesh:true,
             ornamentID:10,
@@ -27298,7 +27296,6 @@ function BeeSwarmSimulator(DATA){
             dialogue:[],
             dialogueIndex_beesmas:0,
             dialogue_beesmas:window.dialogue_stickbug_beesmas(player,items,NPCs),
-            needsTranslator:true,
             mesh:new Mesh(),
             doesntHaveMesh:true,
             ornamentID:11,
